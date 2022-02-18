@@ -18,12 +18,22 @@ const todoItems = [
 function Todo() {
 	const [todos, setTodos] = useState(todoItems);
 	// console.log(todos);
+	// console.log(event, event.target.id, event.target.checked);
 
-	function checkHandler(e) {
-		const changedTodo = todos.find((i) => {
-			console.log(e, e.target.id, e.target.checked);
-			// обратиться к ключу элемента, сравнить два объекта
-		});
+	// обратиться к ключу элемента, сравнить два объекта
+	// по id найти элемент который изменился
+	// поменять статус completed
+	// найти в массиве индекс изменённого элемента indexOf
+	// заменить элемент который изменился
+	// засетить новый массив
+
+	function checkHandler(event) {
+		const changedTodo = todos.find((item) => item.id === event.target.id);
+
+		changedTodo.completed = event.target.checked;
+		todos.indexOf(changedTodo);
+
+		const indexChangedTodo = todos.findIndex((element, index, todos) => {});
 	}
 
 	function deleteItem(id) {
